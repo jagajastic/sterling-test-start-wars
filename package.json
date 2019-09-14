@@ -8,8 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
@@ -18,7 +22,15 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "husky": "^3.0.5",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "vue-template-compiler": "^2.6.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "eslintConfig": {
     "root": true,
