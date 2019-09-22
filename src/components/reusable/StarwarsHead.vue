@@ -11,7 +11,7 @@
           class="w-25"
           id="main-logo"
         />
-        <span class="text-white px-2" id="directory">Directory</span>
+        <h2 class="text-white px-2" id="directory">Directory</h2>
         <span>&nbsp;</span>
       </div>
       <hr class="text-white" id="horizontal-line" />

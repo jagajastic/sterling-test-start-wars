@@ -11,7 +11,7 @@
           </div>
           <div class="col-sm-6 p-0 py-4">
             <div class="card-block px-3">
-              <h4 class="card-title">Lorem ipsum dolor sit amet</h4>
+              <h4 class="card-title">{{ character.name }}</h4>
               <p class="card-text">
                 Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -31,6 +31,7 @@ export default {
   name: 'StarwarsCharacterCard',
   props: {
     msg: String,
+    character: Object,
   },
 };
 </script>

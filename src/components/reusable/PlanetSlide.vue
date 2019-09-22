@@ -1,124 +1,233 @@
 <template>
-  <section class="carousel slide" data-ride="carousel" id="postsCarousel">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 text-md-right lead">
-          <a class="btn btn-outline-secondary prev" href title="go back">
-            <i class="fa fa-lg fa-chevron-left"></i>
-          </a>
-          <a class="btn btn-outline-secondary next" href title="more">
-            <i class="fa fa-lg fa-chevron-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="container p-t-0 m-t-2 carousel-inner">
-      <div class="row row-equal carousel-item active m-t-0 mx-auto">
-        <div class="col-md-4 my-3">
-          <div class="card">
-            <div class="card-img-top card-img-top-250">
-              <img
-                class="img-fluid"
-                src="../../assets/planet-1.jpg"
-                alt="Carousel 1"
-              />
-              <div class="text-center" id="planet-title">
-                <p>Text goes here</p>
-              </div>
-            </div>
+  <div
+    id="multi-item-example"
+    class="carousel slide carousel-multi-item"
+    data-ride="carousel"
+  >
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+      <!--First slide-->
+      <div class="d-flex flex-row mySlides fadeSlide">
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img
+              class="card-img-top"
+              src="../../assets/planet-1.jpg"
+              alt="Card image cap"
+            />
           </div>
         </div>
-        <div class="col-md-4 my-3">
-          <div class="card">
-            <div class="card-img-top card-img-top-250">
-              <img
-                class="img-fluid"
-                src="../../assets/planet-2.jpg"
-                alt="Carousel 2"
-              />
-              <div class="text-center" id="planet-title">
-                <p>Text goes here</p>
-              </div>
-            </div>
+
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img
+              class="card-img-top"
+              src="../../assets/planet-2.jpg"
+              alt="Card image cap"
+            />
           </div>
         </div>
-        <div class="col-md-4 my-3">
-          <div class="card">
-            <div class="card-img-top card-img-top-250">
-              <img
-                class="img-fluid"
-                src="../../assets/planet-3.jpg"
-                alt="Carousel 3"
-              />
-              <div class="text-center" id="planet-title">
-                <p>Text goes here</p>
-              </div>
-            </div>
+
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img
+              class="card-img-top"
+              src="../../assets/planet-3.jpg"
+              alt="Card image cap"
+            />
           </div>
         </div>
       </div>
+      <!--/.First slide-->
+
+      <!--Second slide-->
+      <div class="d-flex flex-row mySlides fadeSlide">
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img
+              class="card-img-top"
+              src="../../assets/planet-1.jpg"
+              alt="Card image cap"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img
+              class="card-img-top"
+              src="../../assets/planet-2.jpg"
+              alt="Card image cap"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img
+              class="card-img-top"
+              src="../../assets/planet-3.jpg"
+              alt="Card image cap"
+            />
+          </div>
+        </div>
+      </div>
+      <!--/.Second slide-->
+
+      <!--Third slide-->
+      <div class="d-flex flex-row mySlides fadeSlide">
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img
+              class="card-img-top"
+              src="../../assets/planet-1.jpg"
+              alt="Card image cap"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img
+              class="card-img-top"
+              src="../../assets/planet-2.jpg"
+              alt="Card image cap"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img
+              class="card-img-top"
+              src="../../assets/planet-3.jpg"
+              alt="Card image cap"
+            />
+          </div>
+        </div>
+      </div>
+      <!--/.Third slide-->
+      <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
     </div>
-  </section>
+    <!--/.Slides-->
+  </div>
 </template>
 
 <script>
 export default {
   name: 'PlanetSlide',
-  props: {},
+  props: {
+    planets: Array,
+  },
+
+  mounted: function() {
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName('mySlides');
+      let slideArray = Array.prototype.slice.call(slides);
+
+      console.log('new slides', slideArray[1]);
+      let dots = document.getElementsByClassName('dot');
+      for (i = 0; i < slideArray.length; i++) {
+        slideArray[i].style.display = 'none';
+      }
+      slideIndex++;
+      if (slideIndex > slideArray.length) {
+        slideIndex = 1;
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' active', '');
+      }
+      console.log('slide index1', slideIndex);
+
+      slideArray[slideIndex - 1].style.display = 'block';
+      dots[slideIndex - 1].className += ' active';
+      setTimeout(showSlides, 4000); // Change image every 2 seconds
+    }
+  },
 };
-
-// (function($) {
-//     "use strict";
-
-//     // manual carousel controls
-//     $('.next').click(function(){ $('.carousel').carousel('next');return false; });
-//     $('.prev').click(function(){ $('.carousel').carousel('prev');return false; });
-
-// })(jQuery);
 </script>
 <style lang="css" scoped>
-#planet-title {
+* {
+  box-sizing: border-box;
+}
+
+.mySlides {
+  display: block !important;
+}
+img {
+  vertical-align: middle;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
   position: absolute;
-  color: white;
-  top: 204px;
-  left: 30%;
-}
-/* equal card height */
-.row-equal > div[class*='col-'] {
-  display: flex;
-  flex: 1 0 auto;
-}
-
-.row-equal .card {
+  bottom: 8px;
   width: 100%;
+  text-align: center;
 }
 
-/* ensure equal card height inside carousel */
-.carousel-inner > .row-equal.active,
-.carousel-inner > .row-equal.next,
-.carousel-inner > .row-equal.prev {
-  display: flex;
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-/* prevent flicker during transition */
-.carousel-inner > .row-equal.active.left,
-.carousel-inner > .row-equal.active.right {
-  opacity: 0.5;
-  display: flex;
+.active {
+  background-color: #717171;
 }
 
-/* control image height */
-.card-img-top-250 {
-  max-height: 370px;
-  overflow: hidden;
+/* Fading animation */
+.fadeSlide {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-@media (max-width: 412) {
-  #planet-title {
-    position: absolute;
-    color: white;
-    top: 280px;
-    left: 35%;
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px;
   }
 }
 </style>
