@@ -26,7 +26,9 @@
     <div
       class="col-md-6 mx-auto my-5 d-flex justify-content-center align-items-center"
     >
-      <button class="btn-lg col-md-8" href="#">VIEW MORE</button>
+      <router-link class="btn-lg col-md-8 text-center" to="/characters"
+        >VIEW MORE</router-link
+      >
     </div>
   </main>
 </template>

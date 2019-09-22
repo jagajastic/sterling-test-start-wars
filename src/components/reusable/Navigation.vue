@@ -3,6 +3,7 @@
     <div class="row">
       <nav aria-label="...">
         <ul class="pagination pagination-lg">
+          <div class="my-3 mx-3">1 of 10</div>
           <li class="page-item disabled">
             <a class="page-link" href="#" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
