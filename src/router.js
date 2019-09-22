@@ -13,7 +13,13 @@ export default new Router({
     },
     {
       path: '/characters',
-      name: 'starwars',
+      name: 'character',
+      component: () =>
+        import(/* webpackChunkName: "starwars" */ './views/Character.vue'),
+    },
+    {
+      path: '/planets',
+      name: 'planets',
       component: () =>
         import(/* webpackChunkName: "starwars" */ './views/Starwars.vue'),
     },
