@@ -73,13 +73,15 @@ option {
   left: 50px;
 }
 #horizontal-line {
-  width: 209px;
+  width: 285px;
   border-bottom-width: 50px;
   border-color: white;
+  border: 1px solid white;
 }
 #directory {
   font-family: sans-serif;
   font-weight: 800;
+  display: inline;
 }
 
 @media (max-width: 412px) {
