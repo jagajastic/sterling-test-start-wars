@@ -3,12 +3,18 @@
     <StarwarsHead ms="hello" />
     <StarwarTitle title="Popular Starship" />
     <div class="card-flex">
-      <StarShip v-for="item in data" v-bind:key="item" :starShip="item" />
+      <StarShip
+        v-for="ship in starships"
+        v-bind:key="ship.name"
+        :starShip="ship"
+      />
     </div>
     <div
       class="col-md-6 mx-auto my-5 d-flex justify-content-center align-items-center"
     >
-      <button class="btn-lg col-md-8">VIEW MORE</button>
+      <router-link class="btn-lg col-md-8 text-center" to="/planets"
+        >VIEW MORE</router-link
+      >
     </div>
     <StarwarTitle title="Popular Planets" />
     <!-- slide goes here -->
@@ -19,7 +25,7 @@
     <div class="card-flex">
       <StarwarsCharacterCard
         v-for="character in characters"
-        v-bind:key="character"
+        :key="character.name"
         :character="character"
       />
     </div>
@@ -47,11 +53,14 @@ import axios from 'axios';
 
 export default {
   name: 'home',
-  props: {
-    data: [],
-    characters: [],
-    planets: [],
+  data() {
+    return {
+      starships: [],
+      characters: [],
+      planets: [],
+    };
   },
+  props: {},
   components: {
     StarwarsHead,
     StarwarTitle,
@@ -64,7 +73,7 @@ export default {
     axios
       .get('https://swapi.co/api/starships')
       .then(res => {
-        this.data = res.data.results.splice(0, 6);
+        this.starships = res.data.results.splice(0, 6);
         // console.log(res);
       })
       .catch(error => error);

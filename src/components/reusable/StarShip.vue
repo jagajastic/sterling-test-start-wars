@@ -22,7 +22,7 @@
 export default {
   name: 'StarShip',
   props: {
-    starShip: String,
+    starShip: Object,
   },
 };
 </script>
