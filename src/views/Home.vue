@@ -6,7 +6,7 @@
       <StarShip
         v-for="ship in starships"
         v-bind:key="ship.name"
-        :starShip="ship"
+        :planet="ship"
       />
     </div>
     <div
@@ -74,7 +74,6 @@ export default {
       .get('https://swapi.co/api/starships')
       .then(res => {
         this.starships = res.data.results.splice(0, 6);
-        // console.log(res);
       })
       .catch(error => error);
 
@@ -85,7 +84,7 @@ export default {
         this.planets = res.data.results.splice(0, 3);
       })
       .catch(error => {
-        console.log(error.message);
+        console.error(error.message);
       });
 
     // character call
@@ -93,10 +92,9 @@ export default {
       .get('https://swapi.co/api/people')
       .then(res => {
         this.characters = res.data.results.splice(0, 4);
-        console.log(this.characters[0].name);
       })
       .catch(error => {
-        console.log(error.message);
+        console.error(error.message);
       });
   },
 };
