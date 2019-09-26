@@ -1,7 +1,14 @@
 <template>
+  <!-- starting page -->
   <div class="home d-flex flex-column text-center" id="head-section">
     <div class>
-      <img src="../../assets/logo.png" alt="star war logo" id="top-right-log" />
+      <router-link to="/">
+        <img
+          src="../../assets/logo.png"
+          alt="star war logo"
+          id="top-right-log"
+        />
+      </router-link>
     </div>
     <div class="mt-5 d-flex flex-column align-items-center">
       <div class id="head-logo">
@@ -55,18 +62,28 @@
           type="text"
           class="border-0 p-md-3 w-100 rounded"
           placeholder="Enter a search term"
+          v-model="search"
+          @keyup="getSearch()"
         />
       </div>
     </div>
-
+    <!-- ending page -->
     <!-- <LandingPage msg="Welcome to Your Vue.js App" /> -->
   </div>
 </template>
 <script>
 export default {
   name: 'StarwarsHead',
-  props: {
-    msg: String,
+  data() {
+    return {
+      search: '',
+    };
+  },
+  props: {},
+  methods: {
+    getSearch: function() {
+      this.$emit('getSearch', this.search);
+    },
   },
 };
 </script>
