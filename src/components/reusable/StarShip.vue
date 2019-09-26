@@ -8,7 +8,7 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
           suscipit quis quod corporis eligendi voluptatibus, nostrum adipisci
           fugiat unde
-          <router-link to="/shipdetails">
+          <router-link :to="'/shipdetails/' + planet" :planet="planet">
             <a class="btn btn-secondary float-right rounded-0 text-dark">
               Read More
               <img src="../../assets/left-arrow.svg" id="arrow" />

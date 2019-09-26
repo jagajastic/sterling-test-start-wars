@@ -57,7 +57,6 @@
       :count="count"
       :next="next"
       :page="page"
-      :pageSize="pageSize"
       v-on:previousPage="getPreviousPage($event)"
       v-on:nextPage="getNextPage($event)"
     />
@@ -82,7 +81,6 @@ export default {
       count: 0,
       next: '',
       page: '1',
-      pageSize: '0',
       previous: '',
       list: ['Male', 'Female', 'n/a'],
       characters: [],
@@ -135,7 +133,6 @@ export default {
             this.count = response.data.count;
             this.next = response.data.next;
             this.previous = response.data.previous;
-            pageSize += 1;
             this.load = false;
           })
           .catch(error => {
@@ -148,12 +145,11 @@ export default {
         this.load = true;
         axios(this.previous)
           .then(response => {
+            this.load = false;
             this.characters = response.data.results;
             this.count = response.data.count;
             this.next = response.data.next;
             this.previous = response.data.previous;
-            pageSize -= 1;
-            this.load = false;
           })
           .catch(error => {
             console.error(error.message);
