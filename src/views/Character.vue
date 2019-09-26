@@ -45,10 +45,12 @@
     </div>
     <!-- end of filter -->
     <div class="card-flex">
+      <Loader class="row mt-3 mb-3" v-if="load" />
       <StarwarsCharacterCard
         v-for="character in characterFilter"
         v-bind:key="character.name"
         :character="character"
+        v-else
       />
     </div>
     <Navigation
@@ -63,10 +65,11 @@
 </template>
 
 <script>
-import StarwarsHead from '../components/reusable/StarwarsHead';
-import StarwarTitle from '../components/reusable/StarwarTitle';
-import StarwarsCharacterCard from '../components/reusable/StarwarsCharacterCard';
-import Navigation from '../components/reusable/Navigation';
+import StarwarsHead from '@/components/reusable/StarwarsHead';
+import StarwarTitle from '@/components/reusable/StarwarTitle';
+import StarwarsCharacterCard from '@/components/reusable/StarwarsCharacterCard';
+import Navigation from '@/components/reusable/Navigation';
+import Loader from '@/components/reusable/Loader';
 
 import axios from 'axios';
 
@@ -83,6 +86,7 @@ export default {
       previous: '',
       list: ['Male', 'Female', 'n/a'],
       characters: [],
+      load: false,
     };
   },
   props: {},
@@ -91,14 +95,17 @@ export default {
     StarwarTitle,
     StarwarsCharacterCard,
     Navigation,
+    Loader,
   },
   created: function() {
+    this.load = true;
     axios('https://swapi.co/api/people')
       .then(response => {
         this.characters = response.data.results;
         this.count = response.data.count;
         this.next = response.data.next;
         this.previous = response.data.previous;
+        this.load = false;
       })
       .catch(error => {
         console.error(error);
@@ -106,12 +113,14 @@ export default {
   },
   methods: {
     searchCharacter(search) {
+      this.load = true;
       axios(`https://swapi.co/api/people/?search=${search}`)
         .then(response => {
           this.characters = response.data.results;
           this.count = response.data.count;
           this.next = response.data.next;
           this.previous = response.data.previous;
+          this.load = false;
         })
         .catch(error => {
           console.error(error.message);
@@ -119,6 +128,7 @@ export default {
     },
     getNextPage() {
       if (this.next) {
+        this.load = true;
         axios(this.next)
           .then(response => {
             this.characters = response.data.results;
@@ -126,6 +136,7 @@ export default {
             this.next = response.data.next;
             this.previous = response.data.previous;
             pageSize += 1;
+            this.load = false;
           })
           .catch(error => {
             console.error(error.message);
@@ -134,6 +145,7 @@ export default {
     },
     getPreviousPage() {
       if (this.previous) {
+        this.load = true;
         axios(this.previous)
           .then(response => {
             this.characters = response.data.results;
@@ -141,6 +153,7 @@ export default {
             this.next = response.data.next;
             this.previous = response.data.previous;
             pageSize -= 1;
+            this.load = false;
           })
           .catch(error => {
             console.error(error.message);
