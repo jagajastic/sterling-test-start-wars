@@ -29,6 +29,9 @@
 <script>
 export default {
   name: 'StarwarsCharacterCard',
+  data() {
+    return {};
+  },
   props: {
     msg: String,
     character: Object,
