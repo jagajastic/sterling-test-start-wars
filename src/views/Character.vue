@@ -95,7 +95,7 @@ export default {
   created: function() {
     axios('https://swapi.co/api/people')
       .then(response => {
-        this.characters = response.data.results.splice(0, 10);
+        this.characters = response.data.results;
         this.count = response.data.count;
         this.next = response.data.next;
         this.previous = response.data.previous;
@@ -112,7 +112,6 @@ export default {
           this.count = response.data.count;
           this.next = response.data.next;
           this.previous = response.data.previous;
-          console.log(response);
         })
         .catch(error => {
           console.error(error.message);

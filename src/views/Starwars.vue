@@ -1,6 +1,6 @@
 <template>
   <main>
-    <StarwarsHead />
+    <StarwarsHead :search="search" v-on:getSearch="searchPlanet($event)" />
     <StarwarTitle title="Popular Starships" />
     <div class="card-flex">
       <StarShip
@@ -9,7 +9,14 @@
         :planet="planet"
       />
     </div>
-    <Navigation />
+    <Navigation
+      :count="count"
+      :next="next"
+      :page="page"
+      :pageSize="pageSize"
+      v-on:previousPage="getPreviousPage($event)"
+      v-on:nextPage="getNextPage($event)"
+    />
   </main>
 </template>
 
@@ -23,9 +30,18 @@ import axios from 'axios';
 
 export default {
   name: 'starwars',
-  props: {
-    planets: [],
+  data() {
+    return {
+      planets: [],
+      count: 0,
+      next: '',
+      page: '1',
+      pageSize: '0',
+      previous: '',
+      search: '',
+    };
   },
+  props: {},
   components: {
     StarwarsHead,
     StarwarTitle,
@@ -36,11 +52,56 @@ export default {
     axios('https://swapi.co/api/starships')
       .then(response => {
         this.planets = response.data.results;
+        this.count = response.data.count;
+        this.next = response.data.next;
+        this.previous = response.data.previous;
         console.log(response);
       })
       .catch(error => {
-        console.error;
+        console.error(error.message);
       });
+  },
+  methods: {
+    getPreviousPage() {
+      if (this.previous) {
+        axios(this.previous)
+          .then(response => {
+            this.planets = response.data.results;
+            this.count = response.data.count;
+            this.next = response.data.next;
+            this.previous = response.data.previous;
+          })
+          .catch(error => {
+            console.error(error.message);
+          });
+      }
+    },
+    getNextPage() {
+      if (this.next) {
+        axios(this.next)
+          .then(response => {
+            this.planets = response.data.results;
+            this.count = response.data.count;
+            this.next = response.data.next;
+            this.previous = response.data.previous;
+          })
+          .catch(error => {
+            console.error(error.message);
+          });
+      }
+    },
+    searchPlanet(search) {
+      axios(`https://swapi.co/api/starships/?search=${search}`)
+        .then(response => {
+          this.planets = response.data.results;
+          this.count = response.data.count;
+          this.next = response.data.next;
+          this.previous = response.data.previous;
+        })
+        .catch(error => {
+          console.error(error.message);
+        });
+    },
   },
 };
 </script>

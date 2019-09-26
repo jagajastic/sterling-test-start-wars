@@ -33,7 +33,6 @@ export default {
     return {};
   },
   props: {
-    msg: String,
     character: Object,
   },
 };
