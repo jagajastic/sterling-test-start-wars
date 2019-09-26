@@ -3,7 +3,7 @@
     <div class="card mx-md-2 my-md-2" style="width: 18rem;">
       <img src="../../assets/starship-1.jpg" class="card-img-top" alt="..." />
       <div class="card-body">
-        <h5 class="card-title">{{ starShip.name }}</h5>
+        <h5 class="card-title">{{ planet.name }}</h5>
         <p class="card-text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
           suscipit quis quod corporis eligendi voluptatibus, nostrum adipisci
@@ -22,7 +22,7 @@
 export default {
   name: 'StarShip',
   props: {
-    starShip: Object,
+    planet: Object,
   },
 };
 </script>
