@@ -21,7 +21,23 @@ export default new Router({
       path: '/planets',
       name: 'planets',
       component: () =>
-        import(/* webpackChunkName: "starwars" */ './views/Starwars.vue'),
+        import(/* webpackChunkName: "planets" */ './views/Starwars.vue'),
+    },
+    {
+      path: '/shipdetails',
+      name: 'starshipdetails',
+      component: () =>
+        import(
+          /* webpackChunkName: "starshipdetails" */ './components/reusable/WarshipDetails.vue'
+        ),
+    },
+    {
+      path: '/characterDetails',
+      name: 'characterdetails',
+      component: () =>
+        import(
+          /* webpackChunkName: "characterDetails" */ './components/reusable/CharacterDetails.vue'
+        ),
     },
   ],
 });

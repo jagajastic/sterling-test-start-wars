@@ -1,120 +1,123 @@
 <template>
-  <div
-    id="multi-item-example"
-    class="carousel slide carousel-multi-item"
-    data-ride="carousel"
-  >
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-      <!--First slide-->
-      <div class="d-flex flex-row mySlides fadeSlide">
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <img
-              class="card-img-top"
-              src="../../assets/planet-1.jpg"
-              alt="Card image cap"
-            />
+  <main>
+    <div
+      id="multi-item-example"
+      class="carousel slide carousel-multi-item"
+      data-ride="carousel"
+    >
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <!--First slide-->
+        <div class="d-flex flex-row mySlides fadeSlide">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img
+                class="card-img-top"
+                src="../../assets/planet-1.jpg"
+                alt="Card image cap"
+              />
+            </div>
+            <div class="text-white" id="planet-text">text here</div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img
+                class="card-img-top"
+                src="../../assets/planet-2.jpg"
+                alt="Card image cap"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img
+                class="card-img-top"
+                src="../../assets/planet-3.jpg"
+                alt="Card image cap"
+              />
+            </div>
           </div>
         </div>
+        <!--/.First slide-->
 
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <img
-              class="card-img-top"
-              src="../../assets/planet-2.jpg"
-              alt="Card image cap"
-            />
+        <!--Second slide-->
+        <div class="d-flex flex-row mySlides fadeSlide">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img
+                class="card-img-top"
+                src="../../assets/planet-1.jpg"
+                alt="Card image cap"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img
+                class="card-img-top"
+                src="../../assets/planet-2.jpg"
+                alt="Card image cap"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img
+                class="card-img-top"
+                src="../../assets/planet-3.jpg"
+                alt="Card image cap"
+              />
+            </div>
           </div>
         </div>
+        <!--/.Second slide-->
 
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <img
-              class="card-img-top"
-              src="../../assets/planet-3.jpg"
-              alt="Card image cap"
-            />
+        <!--Third slide-->
+        <div class="d-flex flex-row mySlides fadeSlide">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img
+                class="card-img-top"
+                src="../../assets/planet-1.jpg"
+                alt="Card image cap"
+              />
+            </div>
           </div>
+
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img
+                class="card-img-top"
+                src="../../assets/planet-2.jpg"
+                alt="Card image cap"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img
+                class="card-img-top"
+                src="../../assets/planet-3.jpg"
+                alt="Card image cap"
+              />
+            </div>
+          </div>
+        </div>
+        <!--/.Third slide-->
+        <div style="text-align:center">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
         </div>
       </div>
-      <!--/.First slide-->
-
-      <!--Second slide-->
-      <div class="d-flex flex-row mySlides fadeSlide">
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <img
-              class="card-img-top"
-              src="../../assets/planet-1.jpg"
-              alt="Card image cap"
-            />
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <img
-              class="card-img-top"
-              src="../../assets/planet-2.jpg"
-              alt="Card image cap"
-            />
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <img
-              class="card-img-top"
-              src="../../assets/planet-3.jpg"
-              alt="Card image cap"
-            />
-          </div>
-        </div>
-      </div>
-      <!--/.Second slide-->
-
-      <!--Third slide-->
-      <div class="d-flex flex-row mySlides fadeSlide">
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <img
-              class="card-img-top"
-              src="../../assets/planet-1.jpg"
-              alt="Card image cap"
-            />
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <img
-              class="card-img-top"
-              src="../../assets/planet-2.jpg"
-              alt="Card image cap"
-            />
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <img
-              class="card-img-top"
-              src="../../assets/planet-3.jpg"
-              alt="Card image cap"
-            />
-          </div>
-        </div>
-      </div>
-      <!--/.Third slide-->
-      <div style="text-align:center">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
+      <!--/.Slides-->
     </div>
-    <!--/.Slides-->
-  </div>
+  </main>
 </template>
 
 <script>
@@ -132,7 +135,6 @@ export default {
       let slides = document.getElementsByClassName('mySlides');
       let slideArray = Array.prototype.slice.call(slides);
 
-      console.log('new slides', slideArray[1]);
       let dots = document.getElementsByClassName('dot');
       for (i = 0; i < slideArray.length; i++) {
         slideArray[i].style.display = 'none';
@@ -144,7 +146,7 @@ export default {
       for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(' active', '');
       }
-      console.log('slide index1', slideIndex);
+      console.log('slide index1', slideArray[slideIndex - 1]);
 
       slideArray[slideIndex - 1].style.display = 'block';
       dots[slideIndex - 1].className += ' active';
@@ -158,9 +160,9 @@ export default {
   box-sizing: border-box;
 }
 
-.mySlides {
+/* .mySlides {
   display: block !important;
-}
+} */
 img {
   vertical-align: middle;
 }
@@ -183,16 +185,13 @@ img {
   text-align: center;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+#planet-text {
+  position: absolute;
+  top: 370px;
+  left: 200px;
 }
+
+/* The dots/bullets/indicators */
 
 .active {
   background-color: #717171;
