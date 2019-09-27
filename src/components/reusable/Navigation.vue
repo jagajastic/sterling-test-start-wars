@@ -4,7 +4,7 @@
       <nav aria-label="...">
         <ul class="pagination pagination-lg">
           <div class="my-3 mx-3">
-            {{ page - pageSize }} - {{ Math.ceil(count / 10) }}
+            {{ page - pageSize || 1 }} - {{ Math.ceil(count / 10) }}
           </div>
           <li class="page-item">
             <a
@@ -13,7 +13,7 @@
               aria-label="Previous"
               @click.prevent="previousPage"
             >
-              <span aria-hidden="true">&laquo;</span>
+              <span aria-hidden="true">&#60;</span>
               <span class="sr-only">Previous</span>
             </a>
           </li>
@@ -23,7 +23,7 @@
               aria-label="Next"
               @click.prevent="nextPage"
             >
-              <span aria-hidden="true">&raquo;</span>
+              <span aria-hidden="true">&#62;</span>
               <span class="sr-only">Next</span>
             </a>
           </li>
