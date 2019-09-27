@@ -17,7 +17,10 @@
                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                 nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commodo consequat.
-                <router-link to="/characterDetails">Readmore</router-link>
+                <router-link
+                  :to="{ path: '/characterDetails/' + character.name }"
+                  >Readmore</router-link
+                >
               </p>
             </div>
           </div>

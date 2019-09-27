@@ -24,7 +24,7 @@ export default new Router({
         import(/* webpackChunkName: "planets" */ './views/Starwars.vue'),
     },
     {
-      path: '/shipdetails',
+      path: '/shipdetails/:name',
       name: 'starshipdetails',
       component: () =>
         import(
@@ -32,7 +32,7 @@ export default new Router({
         ),
     },
     {
-      path: '/characterDetails',
+      path: '/characterDetails/:name',
       name: 'characterdetails',
       component: () =>
         import(

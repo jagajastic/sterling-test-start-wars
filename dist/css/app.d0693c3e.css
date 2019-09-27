@@ -1,0 +1,147 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+.fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+nav[aria-label^='...'] {
+  position: absolute;
+  left: 650px;
+  padding-top: 40px;
+}
+p[class^='h3 font-weight-bold'] {
+  font-weight: 900 !important;
+  color: #555556;
+  letter-spacing: 1px;
+}
+hr[id^='star-char'] {
+  border-bottom: 5px solid grey;
+  width: 10%;
+}
+option {
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+.card-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+#main-logo {
+  height: 48px;
+  width: 130px !important;
+}
+#head-section {
+  background-image: url(../img/hero-banner.dd4c8beb.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+#head-logo {
+  margin-top: 120px;
+}
+#logo {
+  width: 50%;
+}
+#top-right-log {
+  width: 130px;
+  height: 48px;
+  position: absolute;
+  top: 35px;
+  left: 50px;
+}
+#horizontal-line {
+  width: 285px;
+  border-bottom-width: 50px;
+  border-color: #fff;
+  border: 1px solid #fff;
+}
+#directory {
+  font-family: sans-serif;
+  font-weight: 800;
+  display: inline;
+}
+@media (max-width: 412px) {
+  .fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  nav[aria-label^='...'] {
+    position: absolute;
+    left: 100px;
+  }
+  .card-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  p[class^='h3 font-weight-bold'] {
+    font-size: 20px;
+  }
+  #top-right-log {
+    display: none;
+  }
+  #head-logo {
+    margin-top: 0;
+  }
+  #head-section {
+    background-image: url(../img/hero-banner.dd4c8beb.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+  }
+  .card-flex {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media (min-width: 500px) and (max-width: 1024px) {
+  .fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .card-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  nav[aria-label^='...'] {
+    position: absolute;
+    left: 320px;
+  }
+}
