@@ -34,3 +34,5 @@ yarn run lint
 
 Repo
 [https://github.com/jagajastic/sterling-test-start-wars]
+
+Deploy at [https://sterling-test-start-wars.herokuapp.com/#/]
